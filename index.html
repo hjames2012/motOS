@@ -1,155 +1,247 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: black;
-            font-family: Arial, sans-serif;
-            position: relative;
-        }
-        .cool-button {
-            padding: 15px 30px;
-            font-size: 20px;
-            color: white;
-            background-color: #007BFF; /* Button background color */
-                      bottom: 70px; /* Adjust this value to move it higher or lower */
-            border: none;
-            border-radius: 50px; /* Make the button oval */
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: background-color 0.3s ease;
-            user-select: none; /* Prevent text selection */
-        }
-        .cool-button span {
-            position: relative;
-            z-index: 1;
-        }
-        .neon-border {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 50px; /* Match the button's border radius */
-            box-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF; /* Neon blue effect */
-            z-index: 0;
-        }
-        .neon-border::before,
-        .neon-border::after {
-            content: '';
-            position: absolute;
-            border-radius: 50px;
-            opacity: 0.5;
-            box-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 20px #00BFFF; /* Neon blue effect */
-            animation: dance 1.5s infinite alternate;
-        }
-        .neon-border::before {
-            top: -10px;
-            left: -10px;
-            width: 100%;
-            height: 100%;
-            animation-delay: 0s;
-        }
-        .neon-border::after {
-            top: 10px;
-            left: 10px;
-            width: 100%;
-            height: 100%;
-            animation-delay: 0.75s;
-        }
-        @keyframes dance {
-            0% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-        }
-      
-        .scrollable-div {
-            position: fixed; /* Fix the position to the bottom */
-            bottom: 20px; /* Adjust this value to move it higher or lower */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Adjust for centering */
-            width: 80%; /* Set width */
-            height: 150px; /* Set height for scrolling */
-            overflow-y: auto; /* Enable vertical scrolling */
-            background: radial-gradient(circle, purple, #20B2AA); /* Radial gradient from purple to sea green */
-            color: white; /* Text color */
-            padding: 10px;
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-      }
+<!DOCTYPE html>
+<html>
+   <head>
+        <link rel="icon" type="image/png" href="https://github.com/GalacticNetwork/jordansmathwork-v5/raw/main/assets/images/jmw.png?raw=true">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <meta name="990307346a802b31ebca359cf92b73af820e63c0" content="990307346a802b31ebca359cf92b73af820e63c0" />
+       <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQ8CVXYBF9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    </style>
-</head>
-<body>
-  
-    <div class="cool-button" onclick="goToGoogle()">
-        <div class="neon-border"></div>
-        <span id="button-text">Go to Google</span>
+    gtag('config', 'G-TQ8CVXYBF9');
+  </script>
+      <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+     <style>
+body {
+  background-color: #222;
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+}
+
+#header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#header img {
+  width: 20%;
+  height: auto;
+}
+
+#content {
+  text-align: center;
+  padding: 20px;
+  margin-top: -4%;
+}
+
+#content h1, h2, h3, h4, h5, h6, p, li {
+  font-size: 24px;
+  cursor:pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 20px;
+}
+
+#searchbar {
+  text-align: center;
+  margin: 20px auto;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.form__input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  background-color: #222;
+  text-align: center;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+a{
+  text-decoration: none;
+  color:white;
+  width:50px;
+  height:50px;
+  padding-right: 1px;
+  padding-left: 1px;
+  text-align: center;
+  align-self: center;
+}
+
+.form__input::placeholder {
+  color: #aaa;
+  text-align: center;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: transparent;
+   text-align:center;
+   width: 300px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&family=Plus+Jakarta+Sans:ital,wght@0,600;1,600&family=Quicksand:wght@300..700&display=swap');
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #99ccff;
+   font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 100%;
+  height:15px;
+  background-color: #000;
+  padding-top: 7.5px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+#footer p {
+  margin: 0;
+}
+
+.fa {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.fa:hover {
+  color: #aaa;
+}
+        #uv-error {
+  color: #ff6666 !important;
+  white-space: pre-wrap;
+}
+
+#uv-error-code {
+  font-size: 12px;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#uv-register-sw {
+  color: white;
+  background: #555555;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 20px;
+  line-height: 16px;
+  display: none;
+}
+
+#uv-register-sw:active {
+  background: #333333;
+}
+
+#uv-register-sw.show {
+  display: block;
+}
+
+.img {
+  width:100px;
+  height:100px;
+  margin:10px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.img:hover {
+  animation: enlarge 0.5s ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes enlarge {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+a {
+background:var(--txtcolor);
+text-decoration: none;
+}
+        option {
+  font-family: 'Be Vietnam Pro', sans-serif;
+   border-radius: 10px;
+  background: #999;
+           color:black;
+}
+        #bareSwitcher {
+             font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+  color: black;
+  background-color: #999;
+  border-color: black;
+  width: 150px;
+  height: 30px;
+  border-style: solid;
+  border-radius: 8px;
+  font-size: 18px;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
+        }
+     </style>
+   </head>
+   <body >
+    <div id="page-container">
+      <div class="content">
+      <div id="header">
+         <img src="/assets/images/jmw.png" alt="Logo">
+      </div>
+      <div id="content">
+         <h2>MotBrowser</h2>
+         <form id="uv-form">
+            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
+            <input id="uv-address" type="text" placeholder="Type search query or URL" class="form__input"/>
+          </form>
+          <div class="desc left-margin">
+            <p id="uv-error"></p>
+            <pre id="uv-error-code"></pre>
+          </div>
+          <div class="quicksearch">
+            <a class="img" href="/static/embed.html#https://hianime.to"><img class="img" src="/assets/images/app/hianime.png"/></a>
+            <a class="img" href="/static/embed.html#https://nunflix.org"><img class="img" src="/assets/images/app/nun-flix.png"/></a>
+             <a class="img" href="/static/embed.html#https://nowgg.lol/?app_pkg=com.roblox.client&partner=gamenora"><img class="img" src="/assets/images/game/rblx.png"/></a>
+             <a class="img" href="/static/embed.html#https://crazygames.com/"><img class="img" src="/assets/images/app/crazygames.png"/></a>
+          </div>
+      </div>
     </div>
-  <div class="scrollable-div" id="scrollable-text">
-<h2>
-    Clicking the button above will activate "School Mode," a web browser that provides unrestricted access to any website while maintaining a familiar interface that looks exactly like Google Chrome. In School Mode, you will have a built-in bookmarks bar for quick access to your favorite sites and a comprehensive history function that allows you to track your browsing activity effortlessly. This mode is designed to enhance your browsing experience by offering all the essential features of a modern web browser, ensuring that you can navigate the internet seamlessly. By clicking the button, you will unlock the full potential of School Mode, making it easier to access the information you need without any limitations. Activate School Mode now to enjoy a streamlined and efficient browsing experience!
-</h2>
-    <center>
-    <h1>&copy 2025 SystemSolver</h1>
-    </center>
-    </div>
-    <script>
-        const textElement = document.getElementById('button-text');
-        const fullText = "Let's start the schoolday. The right way.";
-        const typingSpeed = 100; // Speed of typing effect
-        const deletingSpeed = 50; // Speed of deleting effect
-      const pauseBeforeDeleting = 1000; // Pause before starting to delete (in milliseconds)
-        let index = 0;
-        let isDeleting = false;
-
-function typeText() {
-            if (isDeleting) {
-                if (index > 0) {
-                    index--;
-                    textElement.textContent = fullText.substring(0, index);
-                    setTimeout(typeText, deletingSpeed);
-                } else {
-                    isDeleting = false;
-                    setTimeout(typeText, pauseBeforeDeleting); // Pause before starting to type again
-                }
-            } else {
-                if (index < fullText.length) {
-                    textElement.textContent = fullText.substring(0, index + 1);
-                    index++;
-                    setTimeout(typeText, typingSpeed);
-                } else {
-                    isDeleting = true;
-                    setTimeout(typeText, pauseBeforeDeleting); // Pause before starting to delete
-                }
-            }
-        }
-
-        // Start the typing effect
-        typeText();
-
-        function goToGoogle() {
-            window.location.href = 'index2.html';
-        }
-  
-    </script>
-
-</body>
+  </div>
+      <script src="/assets/scripts/fade.js"></script>
+      <script src="/static/uv/uv.bundle.js" defer></script>
+      <script src="/static/uv/uv.config.js" defer></script>
+      <script src="/static/register-sw.js" defer></script>
+      <script src="/static/search.js" defer></script>
+      <script src="/static/index.js" defer></script>
+      <script src="/static/error.js" defer></script>
+      <!--keeping young children safe with this-->
+      <script src="/static/filter.js" defer></script>
+      <!--you're welcome parents-->
+   </body>
 </html>
